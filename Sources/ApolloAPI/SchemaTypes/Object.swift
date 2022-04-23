@@ -51,8 +51,8 @@ open class Object: CacheEntity, Cacheable {
     case let interface as Interface:
       return interface._object
 
-    case let union as AnyUnion:
-      return union._object
+    case let union as Union:
+      return union.object
 
     default:
       throw CacheError.Reason.unrecognizedCacheData(cacheData, forType: Self.self)
